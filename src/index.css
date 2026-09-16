@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  --color-brand-green: #2f6b4f;
+  --color-brand-green-dark: #234f3b;
+  --color-brand-green-light: #e7efe9;
+  --color-brand-cream: #f7f3ea;
+  --color-brand-terracotta: #d97745;
+  --color-brand-terracotta-dark: #b85f34;
+  --color-brand-ink: #1f2a24;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-brand-cream);
+    color: var(--color-brand-ink);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-terracotta);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Animaciones de aparición al hacer scroll (useReveal), sutiles y una sola vez. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-group > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
+  }
+  .reveal-group.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-group.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+  .reveal-group.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+  .reveal-group.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+  .reveal-group.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-group > * {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
