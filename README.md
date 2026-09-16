@@ -29,14 +29,21 @@ npm run dev
 3. Las imágenes solo se pueden **previsualizar** desde el panel (no se guardan ahí); para que el cambio sea definitivo hay que sustituir el archivo indicado dentro de `public/images/` y volver a publicar.
 4. Cuando el contenido esté definitivo, pulsa **Exportar JSON** y usa ese archivo para sustituir `src/content/default-content.ts` (o pide que te lo integren) antes del despliegue final — así la web no depende del navegador de nadie.
 
-Ver también la guía sin jerga técnica en [`docs/guia-cambiar-textos-horarios.md`](./docs/guia-cambiar-textos-horarios.md).
+Guía visual paso a paso (para el cliente, sin jerga técnica), en HTML y PDF: [`docs/guia-uso/index.html`](./docs/guia-uso/index.html) / [`docs/guia-uso/guia-uso-web.pdf`](./docs/guia-uso/guia-uso-web.pdf).
 
-## Despliegue en Netlify
+## Despliegue
 
-1. Sube este repositorio a GitHub.
-2. En Netlify: **Add new site → Import an existing project**, elige el repo.
-3. Build command: `npm run build` · Publish directory: `dist` (ya configurado en `netlify.toml`).
-4. Tras el primer despliegue, revisa **Site settings → Forms** para ver las solicitudes de contacto y activar el aviso por correo.
+- **Repositorio:** https://github.com/lacreativaperfectadev/banco-alimentos-comarcal-valparaiso
+- **Web publicada:** https://banco-alimentos-comarcal-valparaiso.netlify.app
+- **Panel de contenido:** https://banco-alimentos-comarcal-valparaiso.netlify.app/admin
+
+El sitio está enlazado (`netlify link`) al proyecto de Netlify `banco-alimentos-comarcal-valparaiso`. Para publicar cambios nuevos:
+
+```bash
+netlify deploy --prod --build
+```
+
+Revisa **Site settings → Forms** en Netlify para ver las solicitudes de contacto y activar el aviso por correo.
 
 ## Pendiente del cliente
 

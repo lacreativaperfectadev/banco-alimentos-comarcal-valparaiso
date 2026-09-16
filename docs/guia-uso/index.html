@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Guía de uso — Banco de Alimentos Comarcal</title>
+<style>
+  :root {
+    --green: #2f6b4f;
+    --green-dark: #234f3b;
+    --green-light: #e7efe9;
+    --cream: #f7f3ea;
+    --terracotta: #d97745;
+    --ink: #1f2a24;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+  .cover {
+    background: linear-gradient(135deg, var(--green-dark), var(--green));
+    color: #fff;
+    padding: 90px 60px;
+    text-align: center;
+  }
+  .cover .eyebrow {
+    color: var(--terracotta);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  .cover h1 {
+    font-size: 38px;
+    margin: 14px 0 10px;
+  }
+  .cover p {
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .cover .badge {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 8px 18px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 999px;
+    font-size: 13px;
+  }
+
+  h2.section-title {
+    font-size: 24px;
+    color: var(--green-dark);
+    border-bottom: 2px solid var(--green-light);
+    padding-bottom: 10px;
+    margin-top: 56px;
+    page-break-after: avoid;
+  }
+  h2.section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 15px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  h3 { color: var(--green-dark); font-size: 16px; margin-top: 28px; }
+  p { font-size: 14.5px; }
+  .note {
+    background: var(--green-light);
+    border-left: 4px solid var(--green);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    margin: 16px 0;
+  }
+  .warn {
+    background: #fdf1ea;
+    border-left: 4px solid var(--terracotta);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    margin: 16px 0;
+  }
+  code {
+    background: var(--green-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ---- Mockups que imitan el panel real (mismos colores/tipos/textos) ---- */
+  .mockup {
+    border: 1px solid #d8ddd9;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 18px 0 26px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    page-break-inside: avoid;
+  }
+  .mockup-bar {
+    background: var(--cream);
+    border-bottom: 1px solid #e3ded1;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mockup-bar .dot { width: 9px; height: 9px; border-radius: 50%; background: #d8d3c5; }
+  .mockup-bar .url { font-size: 11px; color: #7a756a; margin-left: 6px; }
+  .mockup-body { background: #fff; padding: 20px; }
+
+  .field {
+    margin-bottom: 14px;
+  }
+  .field label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(31,42,36,0.8);
+    margin-bottom: 4px;
+  }
+  .field .input {
+    border: 1px solid rgba(47,107,79,0.25);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13px;
+    color: var(--ink);
+    background: #fff;
+  }
+  .field .input.textarea { min-height: 40px; }
+
+  .btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .btn-primary { background: var(--green); color: #fff; }
+  .btn-outline { border: 1px solid rgba(47,107,79,0.35); color: var(--green); background: #fff; }
+
+  .toolbar-mock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid var(--green-light);
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .toolbar-mock .title { font-size: 13px; font-weight: 700; color: var(--green-dark); }
+  .toolbar-mock .actions { display: flex; gap: 6px; flex-wrap: wrap; }
+  .toolbar-mock .actions .btn { font-size: 11px; padding: 6px 12px; }
+
+  .lock-mock {
+    max-width: 260px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+  .lock-mock h4 { margin: 0 0 4px; color: var(--green-dark); font-size: 15px; }
+  .lock-mock p.small { font-size: 12px; color: #6b6f6c; margin: 0 0 12px; }
+
+  .image-field-mock {
+    border: 1px solid rgba(47,107,79,0.2);
+    border-radius: 10px;
+    padding: 12px;
+    max-width: 260px;
+  }
+  .image-field-mock .thumb {
+    aspect-ratio: 4/3;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--green-light), #cfe0d5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 12px;
+    margin: 8px 0;
+  }
+  .image-field-mock .hint {
+    font-size: 11px;
+    color: #6b6f6c;
+  }
+  .image-field-mock code { font-size: 10.5px; }
+
+  .steps {
+    counter-reset: step;
+    padding: 0;
+    list-style: none;
+    margin: 18px 0;
+  }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 42px;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .link-card {
+    display: block;
+    border: 1px solid var(--green-light);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .link-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--terracotta); font-weight: 700; }
+  .link-card .url { font-size: 14px; color: var(--green-dark); font-weight: 600; word-break: break-all; }
+
+  footer.page-footer {
+    margin-top: 60px;
+    padding-top: 16px;
+    border-top: 1px solid var(--green-light);
+    font-size: 11.5px;
+    color: #8a8f8c;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media print {
+    .page { padding: 20px 6px; }
+    .cover { margin: -20px -6px 0; }
+    h2.section-title { page-break-before: auto; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="cover">
+    <p class="eyebrow">Solidaridad que alimenta</p>
+    <h1>Guía de uso de la web</h1>
+    <p>Banco de Alimentos Comarcal · Valparaíso — cómo cambiar textos, imágenes y el logo desde el panel interno, sin tocar código.</p>
+    <div class="badge">Preparada por Kodarvia</div>
+  </div>
+
+  <div class="page">
+
+    <div class="note">
+      <strong>Sobre las imágenes de esta guía:</strong> son reconstrucciones fieles del panel real —
+      mismos colores, tipografía, textos y estructura que verás en pantalla — en vez de capturas de
+      pantalla literales. Si prefieres pantallazos reales, podemos generarlos desde tu propio ordenador
+      y te los añado tal cual.
+    </div>
+
+    <h2 class="section-title"><span class="num">1</span>Entrar al panel</h2>
+    <p>Todo lo editable de la web vive dentro de un panel interno, separado de la landing pública, en la dirección:</p>
+    <div class="link-card">
+      <div class="label">Panel de contenido</div>
+      <div class="url">https://banco-alimentos-comarcal-valparaiso.netlify.app/admin</div>
+    </div>
+    <p>Al entrar pedirá una contraseña:</p>
+
+    <div class="mockup">
+      <div class="mockup-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">banco-alimentos-comarcal-valparaiso.netlify.app/admin</span></div>
+      <div class="mockup-body" style="background:linear-gradient(135deg, var(--green-dark), var(--green)); padding:40px 20px;">
+        <div class="lock-mock">
+          <h4>Panel de contenido</h4>
+          <p class="small">Acceso interno para editar la landing.</p>
+          <div class="field"><label>Contraseña</label><div class="input">••••••••</div></div>
+          <div class="btn btn-primary" style="width:100%; text-align:center; margin-top:10px;">Entrar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn">
+      La contraseña de partida es <code>ADMIN</code>. Kodarvia puede cambiarla en cualquier momento sin tocar el diseño —
+      pídesela si no la tienes a mano.
+    </div>
+
+    <h2 class="section-title"><span class="num">2</span>Cambiar textos</h2>
+    <p>Dentro del panel verás un bloque por cada sección de la landing (cabecera, portada, servicios, precios, equipo,
+    preguntas frecuentes, contacto, legales). Cada campo se guarda solo, en cuanto dejas de escribir — no hay que
+    pulsar ningún botón de "Guardar".</p>
+
+    <div class="mockup">
+      <div class="toolbar-mock">
+        <span class="title">Panel de contenido</span>
+        <div class="actions">
+          <span class="btn btn-outline">Ver landing ↗</span>
+          <span class="btn btn-outline">Exportar JSON</span>
+          <span class="btn btn-outline">Importar JSON</span>
+        </div>
+      </div>
+      <div class="mockup-body">
+        <h3 style="margin-top:0;">Cabecera principal (hero)</h3>
+        <div class="field"><label>Texto pequeño superior</label><div class="input">SOLIDARIDAD QUE ALIMENTA</div></div>
+        <div class="field"><label>Título</label><div class="input textarea">Juntos llevamos alimentos a quienes más lo necesitan</div></div>
+        <div class="field"><label>Párrafo</label><div class="input textarea">Somos un banco de alimentos comarcal en Valparaíso…</div></div>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li>Busca el bloque de la sección que quieras cambiar (por ejemplo, "Cabecera principal").</li>
+      <li>Haz clic dentro del campo de texto y escribe el contenido nuevo.</li>
+      <li>Abre <strong>Ver landing ↗</strong> en otra pestaña para comprobar cómo queda.</li>
+    </ol>
+
+    <h2 class="section-title"><span class="num">3</span>Cambiar imágenes y el logo</h2>
+    <p>Cada foto y el logo tienen su propio campo de imagen, con una vista previa y un selector de archivo:</p>
+
+    <div class="mockup">
+      <div class="mockup-body">
+        <div class="image-field-mock">
+          <label style="font-size:12.5px; font-weight:600;">Foto principal</label>
+          <div class="thumb">Vista previa de la imagen actual</div>
+          <div style="font-size:11px; color:#6b6f6c;">Seleccionar archivo &nbsp; <em>Ningún archivo seleccionado</em></div>
+          <p class="hint">Esto es solo una vista previa de esta sesión. Para que el cambio sea definitivo, sustituye el
+          archivo <code>public/images/hero.webp</code> por la imagen final y vuelve a publicar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <strong>Importante:</strong> subir una imagen ahí te deja ver al momento cómo quedaría, pero ese cambio no se
+      guarda solo — es solo para previsualizar. Para que la foto nueva quede fija en la web hay que sustituir el
+      archivo definitivo y volver a publicar. Si no sabes hacerlo, manda la foto a Kodarvia y la dejamos puesta.
+    </div>
+
+    <h2 class="section-title"><span class="num">4</span>Congelar la versión final</h2>
+    <p>Cuando el contenido ya sea el definitivo, usa el botón <strong>Exportar JSON</strong> (arriba del panel). Se
+    descarga un archivo con todo el texto actual — envíaselo a quien vaya a publicar la versión final para que quede
+    fija en la web, sin depender de tu navegador. El botón <strong>Importar JSON</strong> hace lo contrario: carga un
+    archivo exportado antes.</p>
+
+    <h2 class="section-title"><span class="num">5</span>Solicitudes del formulario de contacto</h2>
+    <p>Las solicitudes que la gente envía desde "Ponte en contacto" <strong>no aparecen dentro de este panel</strong>:
+    quedan guardadas automáticamente en Netlify, la plataforma donde vive la web.</p>
+    <div class="link-card">
+      <div class="label">Ver solicitudes recibidas</div>
+      <div class="url">Netlify → tu proyecto → Forms</div>
+    </div>
+    <p>Desde ahí también se puede activar un aviso por correo para que llegue cada solicitud nueva a vuestro email —
+    Kodarvia se encarga de dejarlo configurado.</p>
+
+    <h2 class="section-title"><span class="num">6</span>Enlaces importantes</h2>
+    <div class="link-card">
+      <div class="label">Web publicada</div>
+      <div class="url">https://banco-alimentos-comarcal-valparaiso.netlify.app</div>
+    </div>
+    <div class="link-card">
+      <div class="label">Panel de contenido</div>
+      <div class="url">https://banco-alimentos-comarcal-valparaiso.netlify.app/admin</div>
+    </div>
+    <div class="link-card">
+      <div class="label">Código fuente (GitHub)</div>
+      <div class="url">https://github.com/lacreativaperfectadev/banco-alimentos-comarcal-valparaiso</div>
+    </div>
+
+    <footer class="page-footer">
+      <span>Banco de Alimentos Comarcal · Valparaíso</span>
+      <span>Guía preparada por Kodarvia</span>
+    </footer>
+
+  </div>
+</body>
+</html>
