@@ -34,8 +34,8 @@ export function HeroSection() {
         <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
           {badges.map((badge) => (
             <li key={badge.label} className="flex items-center gap-2 text-sm font-medium text-white">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white p-1.5 shadow-sm">
-                <img src={badge.icon} alt="" className="h-full w-full object-contain" aria-hidden="true" />
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+                <img src={badge.icon} alt="" className="h-9 w-9 object-contain" aria-hidden="true" />
               </span>
               {badge.label}
             </li>

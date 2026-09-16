@@ -1,5 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
 import { useSiteContent } from '../../hooks/use-site-content'
+import { CustomSelect } from './custom-select'
 
 interface FormValues {
   nombre: string
@@ -111,18 +112,13 @@ export function ContactForm() {
           />
         </Field>
         <Field label={form.reasonLabel} required error={errors.motivo}>
-          <select
+          <CustomSelect
             value={values.motivo}
-            onChange={(e) => setValues((v) => ({ ...v, motivo: e.target.value }))}
-            className={inputClass(!!errors.motivo)}
-          >
-            <option value="">Selecciona una opción</option>
-            {form.reasonOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+            onChange={(motivo) => setValues((v) => ({ ...v, motivo }))}
+            options={form.reasonOptions}
+            placeholder="Selecciona una opción"
+            hasError={!!errors.motivo}
+          />
         </Field>
       </div>
 
