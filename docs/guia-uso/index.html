@@ -281,15 +281,12 @@
     </div>
 
     <h2 class="section-title"><span class="num">1</span>Entrar al panel</h2>
-    <p>Todo lo editable de la web vive dentro de un panel interno, separado de la landing pública, en la dirección:</p>
-    <div class="link-card">
-      <div class="label">Panel de contenido</div>
-      <div class="url">https://banco-alimentos-comarcal.netlify.app/admin</div>
-    </div>
+    <p>Todo lo editable de la web vive dentro de un panel interno, separado de la landing pública, en la dirección
+    <code>tu-dominio.com/admin</code> (la ruta <code>/admin</code> del dominio donde se publique la web).</p>
     <p>Al entrar pedirá una contraseña:</p>
 
     <div class="mockup">
-      <div class="mockup-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">banco-alimentos-comarcal.netlify.app/admin</span></div>
+      <div class="mockup-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">tu-dominio.com/admin</span></div>
       <div class="mockup-body" style="background:linear-gradient(135deg, var(--green-dark), var(--green)); padding:40px 20px;">
         <div class="lock-mock">
           <h4>Panel de contenido</h4>
@@ -351,7 +348,8 @@
     <div class="warn">
       <strong>Importante:</strong> subir una imagen ahí te deja ver al momento cómo quedaría, pero ese cambio no se
       guarda solo — es solo para previsualizar. Para que la foto nueva quede fija en la web hay que sustituir el
-      archivo definitivo y volver a publicar (<code>git add</code>, <code>commit</code>, <code>netlify deploy --prod --build</code>).
+      archivo definitivo y volver a publicar la web (<code>git add</code>, <code>commit</code>, <code>push</code>, y el
+      despliegue correspondiente al hosting elegido).
     </div>
 
     <h2 class="section-title"><span class="num">4</span>Congelar la versión final</h2>
@@ -360,29 +358,13 @@
     fija en la web, sin depender de tu navegador. El botón <strong>Importar JSON</strong> hace lo contrario: carga un
     archivo exportado antes.</p>
 
-    <h2 class="section-title"><span class="num">5</span>Solicitudes del formulario de contacto</h2>
-    <p>Las solicitudes que la gente envía desde "Ponte en contacto" <strong>no aparecen dentro de este panel</strong>:
-    quedan guardadas automáticamente en Netlify, la plataforma donde vive la web.</p>
-    <div class="link-card">
-      <div class="label">Ver solicitudes recibidas</div>
-      <div class="url">Netlify → tu proyecto → Forms</div>
-    </div>
-    <p>Desde ahí también se puede activar un aviso por correo para que cada solicitud nueva llegue directamente al
-    email del cliente: <strong>Site settings → Forms → Form notifications → Add notification → Email notification</strong>.</p>
-
-    <h2 class="section-title"><span class="num">6</span>Enlaces importantes</h2>
-    <div class="link-card">
-      <div class="label">Web publicada</div>
-      <div class="url">https://banco-alimentos-comarcal.netlify.app</div>
-    </div>
-    <div class="link-card">
-      <div class="label">Panel de contenido</div>
-      <div class="url">https://banco-alimentos-comarcal.netlify.app/admin</div>
-    </div>
+    <h2 class="section-title"><span class="num">5</span>Enlace importante</h2>
     <div class="link-card">
       <div class="label">Código fuente (GitHub)</div>
       <div class="url">https://github.com/lacreativaperfectadev/banco-alimentos-comarcal-valparaiso</div>
     </div>
+    <p>La web publicada y el panel viven en <code>tu-dominio.com</code> y <code>tu-dominio.com/admin</code> —
+    la dirección concreta depende del hosting final, todavía por decidir.</p>
 
     <footer class="page-footer">
       <span>Banco de Alimentos Comarcal · Valparaíso</span>

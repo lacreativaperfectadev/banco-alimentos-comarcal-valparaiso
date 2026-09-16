@@ -2,12 +2,16 @@
 
 Landing de una sola página (React + Tailwind CSS) para captar solicitudes de contacto, con un panel interno en `/admin` para editar textos, logo e imágenes sin tocar código.
 
+## Stack
+
+Vite + React 19 + TypeScript + Tailwind CSS v4 + React Router. Sin base de datos ni backend propio.
+
 ## Arquitectura (resumen)
 
-- **Sitio 100% estático**, sin base de datos ni backend propio.
-- **Contenido editable** (textos, precios, FAQ, horario, legales) vive en `localStorage` del navegador. El panel `/admin` lo edita en vivo; el botón "Exportar JSON" descarga el contenido para congelar la versión final.
-- **Formulario de contacto**: usa [Netlify Forms](https://docs.netlify.com/manage/forms/) (sin backend propio). Las solicitudes quedan guardadas y visibles en el sitio de Netlify, en **Site settings → Forms**. Ahí también se puede activar el aviso por correo (lo conecta Kodarvia).
-- Detalle completo de las decisiones en [`plans/`](./plans) y en la memoria del proyecto.
+- **Sitio 100% estático** — se compila con `npm run build` a HTML/CSS/JS puro (carpeta `dist/`), sin servidor ni base de datos que mantener.
+- **Contenido editable** (textos, precios, FAQ, horario, legales) vive en `localStorage` del navegador. El panel `/admin` lo edita en vivo; el botón "Exportar JSON" descarga el contenido para congelar la versión final antes de publicar.
+- **Formulario de contacto**: valida los campos y el consentimiento en el propio navegador. El envío está pensado para engancharse al servicio de formularios del hosting final (actualmente implementado sobre Netlify Forms, ver `src/components/landing/contact-form.tsx` e `index.html`) — si se aloja en otro sitio, esta parte hay que adaptarla a lo que ofrezca ese hosting.
+- Detalle completo de las decisiones de arquitectura en [`plans/`](./plans) y en la memoria del proyecto.
 
 ## Estructura del proyecto
 
@@ -20,25 +24,25 @@ src/
     admin/            # Panel /admin: editores por sección, gate de contraseña, toolbar
   pages/              # Landing, páginas legales, página /admin
   lib/layout.ts       # Clase de contenedor compartida (ancho completo + márgenes 16/24/48/96px)
-public/images/        # Logo, fotos e iconos ya optimizados que usa la web
-imagenes/              # Material original recibido del cliente (no se sirve en la web)
-docs/guia-uso/         # Guía de uso en HTML y PDF (ver más abajo)
+public/images/         # Logo, fotos e iconos ya optimizados que usa la web
+imagenes/               # Material original recibido del cliente (no se sirve en la web)
+docs/guia-uso/          # Guía de uso en HTML y PDF (ver más abajo)
 ```
-
-Stack: Vite + React 19 + TypeScript + Tailwind CSS v4 + React Router. Sin backend propio (ver Arquitectura).
 
 ## Desarrollo local
 
 ```bash
 npm install
-npm run dev
+npm run dev      # servidor de desarrollo
+npm run build    # build de producción en dist/
+npm run lint     # oxlint
 ```
 
 ## Variables de entorno
 
 | Variable | Por defecto | Uso |
 |---|---|---|
-| `VITE_ADMIN_PASSWORD` | `ADMIN` | Contraseña de acceso a `/admin`. Cámbiala antes de publicar creando un archivo `.env` local (no versionado) con `VITE_ADMIN_PASSWORD=tu-clave`, o como variable de entorno en Netlify. |
+| `VITE_ADMIN_PASSWORD` | `ADMIN` | Contraseña de acceso a `/admin`. Cámbiala antes de publicar creando un archivo `.env` local (no versionado) con `VITE_ADMIN_PASSWORD=tu-clave`, o como variable de entorno del hosting elegido. |
 
 ## Editar contenido (`/admin`)
 
@@ -51,21 +55,13 @@ Guía visual paso a paso (uso interno de Kodarvia), en HTML y PDF: [`docs/guia-u
 
 ## Despliegue
 
-- **Repositorio:** https://github.com/lacreativaperfectadev/banco-alimentos-comarcal-valparaiso
-- **Web publicada:** https://banco-alimentos-comarcal.netlify.app
-- **Panel de contenido:** https://banco-alimentos-comarcal.netlify.app/admin
-- **Equipo de Netlify:** `lacreativaperfecta`
+El hosting final todavía no está decidido. Al ser un sitio 100% estático (`npm run build` → carpeta `dist/`), sirve para cualquier hosting de sitios estáticos (Netlify, Vercel, Cloudflare Pages, hosting propio...). El único punto a adaptar según el hosting elegido es el envío del formulario de contacto (ver Arquitectura).
 
-El sitio está enlazado (`netlify link`) al proyecto de Netlify `banco-alimentos-comarcal` (equipo `lacreativaperfecta`). Para publicar cambios nuevos:
-
-```bash
-netlify deploy --prod --build
-```
-
-Revisa **Site settings → Forms** en Netlify para ver las solicitudes de contacto y activar el aviso por correo.
+`netlify.toml` incluido en el repo configura el build y el redirect de SPA por si el hosting final es Netlify; si se elige otro proveedor, ese archivo se puede eliminar o ignorar.
 
 ## Pendiente del cliente
 
 - Logo en vectorial (de momento se usa el logo en `.webp` ya recibido).
 - Datos fiscales para las páginas legales (`/aviso-legal`, `/politica-privacidad`).
 - Validación de las respuestas de las preguntas frecuentes (redactadas como borrador).
+- Confirmar el hosting final para adaptar el envío del formulario de contacto si no es Netlify.
