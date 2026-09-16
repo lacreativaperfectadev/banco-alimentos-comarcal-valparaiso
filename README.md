@@ -52,18 +52,17 @@ Guía visual paso a paso (uso interno de Kodarvia), en HTML y PDF: [`docs/guia-u
 ## Despliegue
 
 - **Repositorio:** https://github.com/lacreativaperfectadev/banco-alimentos-comarcal-valparaiso
-- **Web publicada:** https://banco-alimentos-comarcal-valparaiso.netlify.app
-- **Panel de contenido:** https://banco-alimentos-comarcal-valparaiso.netlify.app/admin
+- **Web publicada:** https://banco-alimentos-comarcal.netlify.app
+- **Panel de contenido:** https://banco-alimentos-comarcal.netlify.app/admin
+- **Equipo de Netlify:** `lacreativaperfecta`
 
-El sitio está enlazado (`netlify link`) al proyecto de Netlify `banco-alimentos-comarcal-valparaiso`. Para publicar cambios nuevos:
+El sitio está enlazado (`netlify link`) al proyecto de Netlify `banco-alimentos-comarcal` (equipo `lacreativaperfecta`). Para publicar cambios nuevos:
 
 ```bash
 netlify deploy --prod --build
 ```
 
 Revisa **Site settings → Forms** en Netlify para ver las solicitudes de contacto y activar el aviso por correo.
-
-> Si no ves el proyecto en el panel de Netlify, comprueba que estás viendo el equipo **Sandra** (no otro equipo/cuenta) — el proyecto se creó ahí, con el nombre `banco-alimentos-comarcal-valparaiso`.
 
 ## Pendiente del cliente
 
