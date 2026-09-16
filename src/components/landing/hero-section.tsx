@@ -31,13 +31,16 @@ export function HeroSection() {
           {ctaLabel}
         </a>
 
-        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+        <ul className="mt-8 grid grid-cols-3 gap-x-2 gap-y-1 sm:flex sm:flex-nowrap sm:gap-x-6">
           {badges.map((badge) => (
-            <li key={badge.label} className="flex items-center gap-2 text-sm font-medium text-white">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
-                <img src={badge.icon} alt="" className="h-9 w-9 object-contain" aria-hidden="true" />
+            <li
+              key={badge.label}
+              className="flex flex-col items-center gap-1 text-center text-[11px] font-medium leading-tight text-white sm:flex-row sm:gap-2 sm:text-left sm:text-sm"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white shadow-sm sm:h-12 sm:w-12">
+                <img src={badge.icon} alt="" className="h-5 w-5 object-contain sm:h-9 sm:w-9" aria-hidden="true" />
               </span>
-              {badge.label}
+              <span>{badge.label}</span>
             </li>
           ))}
         </ul>

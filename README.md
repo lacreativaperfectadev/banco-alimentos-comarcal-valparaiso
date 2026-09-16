@@ -9,6 +9,24 @@ Landing de una sola página (React + Tailwind CSS) para captar solicitudes de co
 - **Formulario de contacto**: usa [Netlify Forms](https://docs.netlify.com/manage/forms/) (sin backend propio). Las solicitudes quedan guardadas y visibles en el sitio de Netlify, en **Site settings → Forms**. Ahí también se puede activar el aviso por correo (lo conecta Kodarvia).
 - Detalle completo de las decisiones en [`plans/`](./plans) y en la memoria del proyecto.
 
+## Estructura del proyecto
+
+```
+src/
+  content/            # Tipos y contenido por defecto de toda la web (textos, precios, FAQ...)
+  hooks/              # use-site-content (CMS en localStorage), use-cookie-consent, use-admin-auth, use-reveal
+  components/
+    landing/          # Secciones públicas (hero, servicios, precios, equipo, FAQ, contacto, footer...)
+    admin/            # Panel /admin: editores por sección, gate de contraseña, toolbar
+  pages/              # Landing, páginas legales, página /admin
+  lib/layout.ts       # Clase de contenedor compartida (ancho completo + márgenes 16/24/48/96px)
+public/images/        # Logo, fotos e iconos ya optimizados que usa la web
+imagenes/              # Material original recibido del cliente (no se sirve en la web)
+docs/guia-uso/         # Guía de uso en HTML y PDF (ver más abajo)
+```
+
+Stack: Vite + React 19 + TypeScript + Tailwind CSS v4 + React Router. Sin backend propio (ver Arquitectura).
+
 ## Desarrollo local
 
 ```bash
@@ -29,7 +47,7 @@ npm run dev
 3. Las imágenes solo se pueden **previsualizar** desde el panel (no se guardan ahí); para que el cambio sea definitivo hay que sustituir el archivo indicado dentro de `public/images/` y volver a publicar.
 4. Cuando el contenido esté definitivo, pulsa **Exportar JSON** y usa ese archivo para sustituir `src/content/default-content.ts` (o pide que te lo integren) antes del despliegue final — así la web no depende del navegador de nadie.
 
-Guía visual paso a paso (para el cliente, sin jerga técnica), en HTML y PDF: [`docs/guia-uso/index.html`](./docs/guia-uso/index.html) / [`docs/guia-uso/guia-uso-web.pdf`](./docs/guia-uso/guia-uso-web.pdf).
+Guía visual paso a paso (uso interno de Kodarvia), en HTML y PDF: [`docs/guia-uso/index.html`](./docs/guia-uso/index.html) / [`docs/guia-uso/guia-uso-web.pdf`](./docs/guia-uso/guia-uso-web.pdf).
 
 ## Despliegue
 
@@ -44,6 +62,8 @@ netlify deploy --prod --build
 ```
 
 Revisa **Site settings → Forms** en Netlify para ver las solicitudes de contacto y activar el aviso por correo.
+
+> Si no ves el proyecto en el panel de Netlify, comprueba que estás viendo el equipo **Sandra** (no otro equipo/cuenta) — el proyecto se creó ahí, con el nombre `banco-alimentos-comarcal-valparaiso`.
 
 ## Pendiente del cliente
 

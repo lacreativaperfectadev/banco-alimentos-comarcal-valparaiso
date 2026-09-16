@@ -268,7 +268,7 @@
     <p class="eyebrow">Solidaridad que alimenta</p>
     <h1>Guía de uso de la web</h1>
     <p>Banco de Alimentos Comarcal · Valparaíso — cómo cambiar textos, imágenes y el logo desde el panel interno, sin tocar código.</p>
-    <div class="badge">Preparada por Kodarvia</div>
+    <div class="badge">Uso interno · Kodarvia</div>
   </div>
 
   <div class="page">
@@ -301,8 +301,8 @@
     </div>
 
     <div class="warn">
-      La contraseña de partida es <code>ADMIN</code>. Kodarvia puede cambiarla en cualquier momento sin tocar el diseño —
-      pídesela si no la tienes a mano.
+      La contraseña de partida es <code>ADMIN</code>. Se puede cambiar en cualquier momento (variable
+      <code>VITE_ADMIN_PASSWORD</code>) sin tocar el diseño.
     </div>
 
     <h2 class="section-title"><span class="num">2</span>Cambiar textos</h2>
@@ -351,7 +351,7 @@
     <div class="warn">
       <strong>Importante:</strong> subir una imagen ahí te deja ver al momento cómo quedaría, pero ese cambio no se
       guarda solo — es solo para previsualizar. Para que la foto nueva quede fija en la web hay que sustituir el
-      archivo definitivo y volver a publicar. Si no sabes hacerlo, manda la foto a Kodarvia y la dejamos puesta.
+      archivo definitivo y volver a publicar (<code>git add</code>, <code>commit</code>, <code>netlify deploy --prod --build</code>).
     </div>
 
     <h2 class="section-title"><span class="num">4</span>Congelar la versión final</h2>
@@ -367,8 +367,8 @@
       <div class="label">Ver solicitudes recibidas</div>
       <div class="url">Netlify → tu proyecto → Forms</div>
     </div>
-    <p>Desde ahí también se puede activar un aviso por correo para que llegue cada solicitud nueva a vuestro email —
-    Kodarvia se encarga de dejarlo configurado.</p>
+    <p>Desde ahí también se puede activar un aviso por correo para que cada solicitud nueva llegue directamente al
+    email del cliente: <strong>Site settings → Forms → Form notifications → Add notification → Email notification</strong>.</p>
 
     <h2 class="section-title"><span class="num">6</span>Enlaces importantes</h2>
     <div class="link-card">
@@ -386,7 +386,7 @@
 
     <footer class="page-footer">
       <span>Banco de Alimentos Comarcal · Valparaíso</span>
-      <span>Guía preparada por Kodarvia</span>
+      <span>Documento interno · Kodarvia</span>
     </footer>
 
   </div>
