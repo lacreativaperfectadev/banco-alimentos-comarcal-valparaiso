@@ -11,6 +11,8 @@ interface ImageBannerProps {
   /** 'left' pone el degradado a la izquierda (texto a la izquierda, foto visible a la derecha). */
   gradient?: 'left' | 'right'
   minHeightClassName?: string
+  /** Marca la imagen como prioritaria (hero, visible sin scroll): carga eager en vez de lazy. */
+  priority?: boolean
 }
 
 const gradientClasses: Record<NonNullable<ImageBannerProps['gradient']>, string> = {
@@ -26,10 +28,18 @@ export function ImageBanner({
   cornerNote,
   gradient = 'left',
   minHeightClassName = 'min-h-[540px] sm:min-h-[600px]',
+  priority = false,
 }: ImageBannerProps) {
   return (
     <section id={id} className={`relative flex w-full items-center overflow-hidden ${minHeightClassName}`}>
-      <img src={image} alt={imageAlt} className="absolute inset-0 h-full w-full object-cover" />
+      <img
+        src={image}
+        alt={imageAlt}
+        className="absolute inset-0 h-full w-full object-cover"
+        loading={priority ? 'eager' : 'lazy'}
+        decoding={priority ? 'sync' : 'async'}
+        fetchPriority={priority ? 'high' : 'auto'}
+      />
       <div className={`absolute inset-0 ${gradientClasses[gradient]}`} aria-hidden="true" />
       <div className={`relative z-10 ${CONTAINER} py-14 sm:py-20`}>{children}</div>
       {cornerNote}

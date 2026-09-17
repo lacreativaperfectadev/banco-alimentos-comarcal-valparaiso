@@ -14,7 +14,13 @@ export function FaqSection() {
         className={`reveal ${CONTAINER} grid items-start gap-8 lg:grid-cols-2 lg:gap-14 ${reveal.visible ? 'is-visible' : ''}`}
       >
         <div>
-          <img src={image} alt={imageAlt} className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg" />
+          <img
+            src={image}
+            alt={imageAlt}
+            className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg"
+            loading="lazy"
+            decoding="async"
+          />
           <p className="mt-4 text-center font-hand text-2xl text-brand-terracotta lg:text-left">{eyebrow}</p>
         </div>
 

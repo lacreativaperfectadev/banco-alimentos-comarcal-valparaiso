@@ -9,12 +9,30 @@
       content="Banco de Alimentos Comarcal de Valparaíso: recogida, almacenamiento y distribución de alimentos a personas y familias en situación de vulnerabilidad. Contacta con nosotros."
     />
     <title>Banco de Alimentos Comarcal · Valparaíso</title>
+
+    <!-- La imagen del hero es el elemento LCP; al ser una SPA, el navegador no
+         la "descubre" hasta que React monta el árbol, así que se precarga
+         aquí para que empiece a bajar en paralelo con el JS. -->
+    <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Carga no bloqueante de Google Fonts: evita que la hoja de estilos
+         retrase el primer render. El cambio de rel="preload" a "stylesheet"
+         lo hace main.tsx (con onload inline el CSP script-src 'self' lo
+         bloquearía por ser un script en línea). -->
     <link
+      id="fonts-preload"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap"
-      rel="stylesheet"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

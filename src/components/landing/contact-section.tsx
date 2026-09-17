@@ -51,7 +51,13 @@ export function ContactSection() {
               altura que el formulario, en vez de un tamaño fijo que a veces
               se quedaba corto y otras dejaba un hueco verde debajo. */}
           <div className="relative min-h-[220px] flex-1 overflow-hidden rounded-2xl">
-            <img src={info.mapImage} alt={info.mapImageAlt} className="absolute inset-0 h-full w-full object-cover" />
+            <img
+              src={info.mapImage}
+              alt={info.mapImageAlt}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
             <p className="pointer-events-none absolute bottom-4 right-4 rotate-[-3deg] font-hand text-2xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
               {info.mapCaption} ♥
             </p>

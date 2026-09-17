@@ -13,6 +13,7 @@ export function HeroSection() {
       image={image}
       imageAlt={imageAlt}
       gradient="left"
+      priority
       cornerNote={
         <p className="pointer-events-none absolute bottom-6 right-4 rotate-[-3deg] font-hand text-2xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.45)] sm:right-8 sm:text-3xl">
           {imageCaption} ♥
