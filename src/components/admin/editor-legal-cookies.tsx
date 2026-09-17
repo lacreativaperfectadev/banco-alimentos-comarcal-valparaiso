@@ -30,7 +30,7 @@ export function EditorLegalCookies() {
       </AdminSectionCard>
 
       <AdminSectionCard title="Páginas legales">
-        <p className="text-xs text-brand-ink/60">
+        <p className="text-xs text-brand-ink/70">
           Textos provisionales hasta que lleguen los datos fiscales definitivos del cliente.
         </p>
         <FieldInput

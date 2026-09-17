@@ -212,10 +212,6 @@ export const defaultContent: SiteContent = {
       { label: 'Política de privacidad', href: '/politica-privacidad' },
       { label: 'Política de cookies', href: '/politica-cookies' },
     ],
-    socialLinks: [
-      { label: 'Facebook', href: '#' },
-      { label: 'Instagram', href: '#' },
-    ],
   },
   cookieBanner: {
     message:

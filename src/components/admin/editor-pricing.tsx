@@ -22,7 +22,7 @@ export function EditorPricing() {
       <div className="space-y-4">
         {pricing.items.map((item, index) => (
           <div key={index} className="rounded-lg border border-brand-green/15 p-3">
-            <p className="mb-2 text-xs font-semibold uppercase text-brand-ink/50">Lote {index + 1}</p>
+            <p className="mb-2 text-xs font-semibold uppercase text-brand-ink/70">Lote {index + 1}</p>
             <div className="grid gap-2 sm:grid-cols-2">
               <FieldInput label="Nombre" value={item.name} onChange={(v) => updateItem(index, { name: v })} />
               <FieldInput label="Descripción" value={item.description} onChange={(v) => updateItem(index, { description: v })} />

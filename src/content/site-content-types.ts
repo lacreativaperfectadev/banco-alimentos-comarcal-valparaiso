@@ -114,7 +114,6 @@ export interface SiteContent {
     logo: string
     logoAlt: string
     links: NavLink[]
-    socialLinks: { label: string; href: string }[]
   }
   cookieBanner: {
     message: string

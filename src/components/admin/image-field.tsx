@@ -30,7 +30,7 @@ export function ImageField({ label, currentSrc }: ImageFieldProps) {
         className="mt-2 aspect-[4/3] w-full max-w-xs rounded-lg object-cover"
       />
       <input type="file" accept="image/*" onChange={handleFileChange} className="mt-2 block text-xs" />
-      <p className="mt-1 text-xs text-brand-ink/60">
+      <p className="mt-1 text-xs text-brand-ink/70">
         Esto es solo una vista previa de esta sesión. Para que el cambio sea definitivo, sustituye el archivo{' '}
         <code className="rounded bg-brand-green-light px-1">public/images/{fileName}</code> por la imagen final y
         vuelve a publicar.

@@ -24,7 +24,7 @@ export function AdminToolbar() {
     <div className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-3 border-b border-brand-green/15 bg-white px-4 py-3 sm:px-6">
       <div>
         <p className="text-sm font-semibold text-brand-green-dark">Panel de contenido</p>
-        <p className="text-xs text-brand-ink/60">Los cambios se guardan al instante en este navegador.</p>
+        <p className="text-xs text-brand-ink/70">Los cambios se guardan al instante en este navegador.</p>
       </div>
 
       <div className="flex flex-wrap items-center gap-2">

@@ -8,8 +8,11 @@
   --color-brand-green-dark: #234f3b;
   --color-brand-green-light: #e7efe9;
   --color-brand-cream: #f7f3ea;
-  --color-brand-terracotta: #d97745;
-  --color-brand-terracotta-dark: #b85f34;
+  /* Terracota oscurecida respecto al valor de partida (#d97745) para cumplir
+     contraste WCAG AA (4.5:1) como texto sobre blanco/crema y como fondo de
+     botón con texto blanco — el tono original no llegaba a 4.5:1. */
+  --color-brand-terracotta: #a35934;
+  --color-brand-terracotta-dark: #824729;
   --color-brand-ink: #1f2a24;
 }
 

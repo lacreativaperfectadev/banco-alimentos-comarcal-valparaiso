@@ -41,12 +41,12 @@ export function PricingSection() {
               <h3 className="mt-3 text-base font-semibold text-brand-green-dark">{item.name}</h3>
               <p className="text-sm text-brand-ink/70">{item.description}</p>
               <p className="mt-3 text-xl font-bold text-brand-terracotta">{item.price}</p>
-              <p className="text-xs text-brand-ink/60">{item.weight}</p>
+              <p className="text-xs text-brand-ink/70">{item.weight}</p>
             </li>
           ))}
         </ul>
 
-        <p className="mt-5 flex items-center gap-2 text-xs text-brand-ink/60">
+        <p className="mt-5 flex items-center gap-2 text-xs text-brand-ink/70">
           <span aria-hidden="true">ⓘ</span>
           {disclaimer}
         </p>

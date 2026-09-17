@@ -15,7 +15,7 @@ export function EditorServices() {
       <div className="space-y-4">
         {services.items.map((item, index) => (
           <div key={index} className="rounded-lg border border-brand-green/15 p-3">
-            <p className="mb-2 text-xs font-semibold uppercase text-brand-ink/50">Servicio {index + 1}</p>
+            <p className="mb-2 text-xs font-semibold uppercase text-brand-ink/70">Servicio {index + 1}</p>
             <FieldInput
               label="Título"
               value={item.title}

@@ -5,7 +5,7 @@ import { ImageField } from './image-field'
 
 export function EditorHeaderFooter() {
   const { content, updateSection } = useSiteContent()
-  const { header, footer } = content
+  const { header } = content
 
   return (
     <AdminSectionCard title="Cabecera, pie y logo">
@@ -25,32 +25,6 @@ export function EditorHeaderFooter() {
                 updateSection('header', { ...header, navLinks })
               }}
             />
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <p className="text-sm font-medium text-brand-ink/80">Redes sociales (pie de página)</p>
-        <div className="mt-2 space-y-2">
-          {footer.socialLinks.map((social, index) => (
-            <div key={index} className="grid grid-cols-2 gap-2">
-              <FieldInput
-                label="Nombre"
-                value={social.label}
-                onChange={(v) => {
-                  const socialLinks = footer.socialLinks.map((s, i) => (i === index ? { ...s, label: v } : s))
-                  updateSection('footer', { ...footer, socialLinks })
-                }}
-              />
-              <FieldInput
-                label="Enlace"
-                value={social.href}
-                onChange={(v) => {
-                  const socialLinks = footer.socialLinks.map((s, i) => (i === index ? { ...s, href: v } : s))
-                  updateSection('footer', { ...footer, socialLinks })
-                }}
-              />
-            </div>
           ))}
         </div>
       </div>

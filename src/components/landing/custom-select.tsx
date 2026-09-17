@@ -38,7 +38,7 @@ export function CustomSelect({ value, onChange, options, placeholder, hasError }
         aria-expanded={open}
         className={`flex w-full items-center justify-between rounded-lg border px-3 py-2 text-left text-sm outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/30 ${
           hasError ? 'border-red-400' : 'border-brand-green/20'
-        } ${value ? 'text-brand-ink' : 'text-brand-ink/50'}`}
+        } ${value ? 'text-brand-ink' : 'text-brand-ink/70'}`}
       >
         <span className="truncate">{value || placeholder}</span>
         <span aria-hidden="true" className={`ml-2 shrink-0 text-brand-green transition-transform ${open ? 'rotate-180' : ''}`}>

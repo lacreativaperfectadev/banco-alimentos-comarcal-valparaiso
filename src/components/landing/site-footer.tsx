@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useSiteContent } from '../../hooks/use-site-content'
 import { CONTAINER } from '../../lib/layout'
-import { SocialIcon } from './social-icon'
 
 export function SiteFooter() {
   const { content } = useSiteContent()
-  const { logo, logoAlt, links, socialLinks } = content.footer
+  const { logo, logoAlt, links } = content.footer
 
   return (
     <footer className="bg-brand-ink py-10 text-white/80">
@@ -19,19 +18,6 @@ export function SiteFooter() {
             </Link>
           ))}
         </nav>
-
-        <div className="flex items-center gap-3">
-          {socialLinks.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              aria-label={social.label}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/90 transition-colors hover:bg-white/20 hover:text-white"
-            >
-              <SocialIcon network={social.label} />
-            </a>
-          ))}
-        </div>
       </div>
     </footer>
   )
